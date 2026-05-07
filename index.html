@@ -1,148 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Baglory.pk</title>
 
 <style>
-body {
+
+*{
   margin:0;
-  font-family: 'Poppins', sans-serif;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: Arial, sans-serif;
+  background:#faf7f5;
+  color:#222;
+}
+
+/* HEADER */
+
+header{
+  background: linear-gradient(to right,#f8e7ee,#fdf7f9);
+  padding:25px 20px;
+  text-align:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:4px solid #fff;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom:15px;
+}
+
+header h1{
+  font-size:42px;
+  color:#b76e79;
+  letter-spacing:2px;
+}
+
+header p{
+  color:#666;
+  margin-top:8px;
+  font-size:16px;
+}
+
+/* HERO */
+
+.hero{
+  text-align:center;
+  padding:60px 20px;
+  background:
+  linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)),
+  url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200');
+  background-size:cover;
+  background-position:center;
+}
+
+.hero h2{
+  font-size:42px;
+  color:#222;
+  margin-bottom:15px;
+}
+
+.hero p{
+  font-size:18px;
+  color:#555;
+}
+
+/* PRODUCTS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+  padding:50px 20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.card{
   background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+  transition:0.3s;
 }
 
-header {
-  background:#fbeaea;
-  text-align:center;
-  padding:30px;
+.card:hover{
+  transform:translateY(-8px);
 }
 
-.hero {
-  text-align:center;
-  padding:40px;
+.slider{
+  position:relative;
+  width:100%;
+  height:400px;
+  overflow:hidden;
 }
 
-.products {
+.slides{
   display:flex;
-  flex-wrap:wrap;
+  width:200%;
+  animation:slide 8s infinite;
+}
+
+.slides img{
+  width:100%;
+  height:400px;
+  object-fit:cover;
+}
+
+@keyframes slide{
+  0%{transform:translateX(0);}
+  45%{transform:translateX(0);}
+  50%{transform:translateX(-50%);}
+  95%{transform:translateX(-50%);}
+  100%{transform:translateX(0);}
+}
+
+.card-content{
+  padding:20px;
+  text-align:center;
+}
+
+.card-content h3{
+  font-size:24px;
+  margin-bottom:10px;
+  color:#222;
+}
+
+.price{
+  color:#b76e79;
+  font-size:22px;
+  margin-bottom:18px;
+  font-weight:bold;
+}
+
+.buttons{
+  display:flex;
+  gap:10px;
   justify-content:center;
-  gap:20px;
-  padding:20px;
 }
 
-.card {
-  width:220px;
-  border:1px solid #eee;
-  padding:15px;
+.buy-btn,
+.message-btn{
+  text-decoration:none;
+  padding:12px 18px;
   border-radius:10px;
-  text-align:center;
+  font-weight:bold;
+  transition:0.3s;
+  display:inline-block;
 }
 
-button {
-  background:#f8bcbc;
-  border:none;
-  padding:10px;
-  cursor:pointer;
-  border-radius:5px;
+.buy-btn{
+  background:#b76e79;
+  color:white;
 }
 
-footer {
-  text-align:center;
-  padding:20px;
-  background:#fbeaea;
+.buy-btn:hover{
+  background:#9f5964;
 }
+
+.message-btn{
+  background:#f2f2f2;
+  color:#222;
+}
+
+.message-btn:hover{
+  background:#ddd;
+}
+
+/* FOOTER */
+
+footer{
+  text-align:center;
+  padding:25px;
+  background:#fff;
+  margin-top:40px;
+  color:#666;
+  border-top:1px solid #eee;
+}
+
 </style>
-
 </head>
 
 <body>
 
-<header>
-  <h1>Baglory.pk</h1>
-  <p>Handcrafted Elegance in Every Detail</p>
+<!-- HEADER -->
 
-  <h3>🛒 Cart: <span id="cart-count">0</span></h3>
-  <h3>Total: Rs. <span id="total-price">0</span></h3>
+<header>
+
+  <!-- ADD YOUR LOGO IMAGE NAME HERE -->
+  <img src="logo.png" class="logo">
+
+  <h1>Baglory.pk</h1>
+
+  <p>Luxury Handmade Crystal Bags ✨</p>
+
 </header>
 
+<!-- HERO SECTION -->
+
 <section class="hero">
-  <h2>Luxury Handmade Accessories</h2>
-  <p>Crystal bags & beaded bracelets designed for your perfect look.</p>
+
+  <h2>Elegant Luxury Collection</h2>
+
+  <p>Handmade crystal bags crafted with beauty & elegance</p>
+
 </section>
+
+<!-- PRODUCTS -->
 
 <section class="products">
 
-<div class="card">
-  <img src="bag3.jpeg" width="100%">
-  <h3>Crystal Bag</h3>
-  <p>Rs. 1000</p>
-  <button onclick="addToCart('Crystal Bag',1000)">Add to Cart</button>
-</div>
+  <!-- PRODUCT 1 -->
 
-<div class="card">
-  <img src="https://via.placeholder.com/200" width="100%">
-  <h3>Beaded Bracelet</h3>
-  <p>Rs. 800</p>
-  <button onclick="addToCart('Beaded Bracelet',800)">Add to Cart</button>
-</div>
+  <div class="card">
+
+    <div class="slider">
+
+      <div class="slides">
+
+        <img src="bag1.jpg">
+        <img src="bag2.jpg">
+
+      </div>
+
+    </div>
+
+    <div class="card-content">
+
+      <h3>Crystal Luxury Bag</h3>
+
+      <div class="price">Rs. 4,999</div>
+
+      <div class="buttons">
+
+        <!-- BUY NOW BUTTON -->
+
+        <a href="https://ig.me/m/yourusername"
+        class="buy-btn">
+        Buy Now
+        </a>
+
+        <!-- INSTAGRAM MESSAGE BUTTON -->
+
+        <a href="https://ig.me/m/yourusername"
+        class="message-btn">
+        Instagram Message
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
-<section style="text-align:center; padding:20px;">
-<h2>Your Cart</h2>
-<div id="cart-items"></div>
-
-<br>
-
-<button onclick="checkoutCart()">Checkout on Instagram</button>
-</section>
+<!-- FOOTER -->
 
 <footer>
-  <p>Follow us on Instagram @baglory.pk</p>
+
+  © 2026 Baglory.pk — Handmade with Love ✨
+
 </footer>
-
-<script>
-
-let cart = [];
-let total = 0;
-
-function addToCart(product, price) {
-  cart.push({product, price});
-  total += price;
-  updateCart();
-}
-
-function removeFromCart(index) {
-  total -= cart[index].price;
-  cart.splice(index, 1);
-  updateCart();
-}
-
-function updateCart() {
-
-  document.getElementById("cart-count").innerText = cart.length;
-  document.getElementById("total-price").innerText = total;
-
-  let html = "";
-
-  for (let i = 0; i < cart.length; i++) {
-    html += `
-      <p>
-        ${cart[i].product} - Rs.${cart[i].price}
-        <button onclick="removeFromCart(${i})">Remove</button>
-      </p>
-    `;
-  }
-
-  document.getElementById("cart-items").innerHTML = html;
-}
-
-function checkoutCart() {
-  window.open("https://instagram.com/baglory.pk", "_blank");
-}
-
-</script>
 
 </body>
 </html>
