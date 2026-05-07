@@ -70,16 +70,19 @@ let total = 0;
 
 function addToCart(product, price) {
 
-  cart.push({product, price});
+  cart.push({
+    product: product,
+    price: price
+  });
 
-  total += price;
+  total = total + price;
 
   updateCart();
 }
 
 function removeFromCart(index) {
 
-  total -= cart[index].price;
+  total = total - cart[index].price;
 
   cart.splice(index, 1);
 
@@ -94,18 +97,15 @@ function updateCart() {
 
   let cartHTML = "";
 
-  cart.forEach((item, index) => {
+  for(let i = 0; i < cart.length; i++) {
 
-    cartHTML += `
-      <p>
-        ${item.product} - Rs.${item.price}
-
-        <button onclick="removeFromCart(${index})">
-          Remove
-        </button>
-      </p>
-    `;
-  });
+    cartHTML +=
+    "<p>" +
+    cart[i].product +
+    " - Rs." +
+    cart[i].price +
+    " <button onclick='removeFromCart(" + i + ")'>Remove</button></p>";
+  }
 
   document.getElementById("cart-items").innerHTML = cartHTML;
 }
@@ -119,7 +119,6 @@ function checkoutCart() {
 }
 
 </script>
-
 </body>
 <header>
   <h1>Baglory.pk</h1>
