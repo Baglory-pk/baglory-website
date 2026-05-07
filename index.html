@@ -1,189 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Baglory.pk</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baglory</title>
 
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-  font-family: Arial, sans-serif;
-  background:#faf7f5;
-  color:#222;
+font-family:Arial,sans-serif;
+background:#fff8fb;
+color:#222;
 }
 
 /* HEADER */
 
 header{
-  background: linear-gradient(to right,#f8e7ee,#fdf7f9);
-  padding:25px 20px;
-  text-align:center;
-  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+position:sticky;
+top:0;
+z-index:1000;
+background:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
-.logo{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #fff;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);
-  margin-bottom:15px;
+.logo-text{
+font-size:34px;
+font-weight:bold;
+color:#c46b85;
+letter-spacing:2px;
 }
 
-header h1{
-  font-size:42px;
-  color:#b76e79;
-  letter-spacing:2px;
+.right-icons{
+display:flex;
+align-items:center;
+gap:20px;
 }
 
-header p{
-  color:#666;
-  margin-top:8px;
-  font-size:16px;
+.search-box{
+padding:10px 15px;
+border-radius:30px;
+border:1px solid #ddd;
+outline:none;
+width:220px;
+}
+
+.cart{
+font-size:28px;
+cursor:pointer;
 }
 
 /* HERO */
 
 .hero{
-  text-align:center;
-  padding:60px 20px;
-  background:
-  linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.6)),
-  url('https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200');
-  background-size:cover;
-  background-position:center;
+height:85vh;
+background:
+linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)),
+url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1400');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
 }
 
-.hero h2{
-  font-size:42px;
-  color:#222;
-  margin-bottom:15px;
+.hero-content{
+background:rgba(255,255,255,0.75);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(5px);
+}
+
+.hero h1{
+font-size:60px;
+color:#b85c74;
+margin-bottom:15px;
 }
 
 .hero p{
-  font-size:18px;
-  color:#555;
+font-size:20px;
+color:#444;
+}
+
+/* CATEGORY TITLE */
+
+.section-title{
+text-align:center;
+font-size:40px;
+margin-top:60px;
+margin-bottom:30px;
+color:#c46b85;
 }
 
 /* PRODUCTS */
 
 .products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:30px;
-  padding:50px 20px;
-  max-width:1200px;
-  margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+padding:0 30px 50px;
+max-width:1300px;
+margin:auto;
 }
 
 .card{
-  background:#fff;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-  transition:0.3s;
+background:white;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 8px 25px rgba(0,0,0,0.08);
+transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
+transform:translateY(-10px);
 }
 
 .slider{
-  position:relative;
-  width:100%;
-  height:400px;
-  overflow:hidden;
+width:100%;
+height:380px;
+overflow:hidden;
+position:relative;
 }
 
 .slides{
-  display:flex;
-  width:200%;
-  animation:slide 8s infinite;
+display:flex;
+width:200%;
+animation:slide 8s infinite;
 }
 
 .slides img{
-  width:100%;
-  height:400px;
-  object-fit:cover;
+width:100%;
+height:380px;
+object-fit:cover;
 }
 
 @keyframes slide{
-  0%{transform:translateX(0);}
-  45%{transform:translateX(0);}
-  50%{transform:translateX(-50%);}
-  95%{transform:translateX(-50%);}
-  100%{transform:translateX(0);}
+0%{transform:translateX(0);}
+45%{transform:translateX(0);}
+50%{transform:translateX(-50%);}
+95%{transform:translateX(-50%);}
+100%{transform:translateX(0);}
 }
 
 .card-content{
-  padding:20px;
-  text-align:center;
+padding:20px;
+text-align:center;
 }
 
 .card-content h3{
-  font-size:24px;
-  margin-bottom:10px;
-  color:#222;
+font-size:26px;
+margin-bottom:10px;
 }
 
 .price{
-  color:#b76e79;
-  font-size:22px;
-  margin-bottom:18px;
-  font-weight:bold;
+font-size:24px;
+font-weight:bold;
+color:#c46b85;
+margin-bottom:20px;
 }
 
 .buttons{
-  display:flex;
-  gap:10px;
-  justify-content:center;
+display:flex;
+justify-content:center;
+gap:15px;
 }
 
-.buy-btn,
-.message-btn{
-  text-decoration:none;
-  padding:12px 18px;
-  border-radius:10px;
-  font-weight:bold;
-  transition:0.3s;
-  display:inline-block;
+.btn{
+padding:12px 22px;
+border:none;
+border-radius:12px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.cart-btn{
+background:#f3d3dc;
 }
 
 .buy-btn{
-  background:#b76e79;
-  color:white;
+background:#c46b85;
+color:white;
 }
 
-.buy-btn:hover{
-  background:#9f5964;
-}
-
-.message-btn{
-  background:#f2f2f2;
-  color:#222;
-}
-
-.message-btn:hover{
-  background:#ddd;
+.btn:hover{
+opacity:0.85;
 }
 
 /* FOOTER */
 
 footer{
-  text-align:center;
-  padding:25px;
-  background:#fff;
-  margin-top:40px;
-  color:#666;
-  border-top:1px solid #eee;
+background:white;
+padding:30px;
+text-align:center;
+margin-top:50px;
+border-top:1px solid #eee;
+color:#666;
 }
 
 </style>
@@ -195,71 +220,191 @@ footer{
 
 <header>
 
-  <!-- ADD YOUR LOGO IMAGE NAME HERE -->
-  <img src="logo.png" class="logo">
+<div class="logo-text">Baglory</div>
 
-  <h1>Baglory.pk</h1>
+<div class="right-icons">
 
-  <p>Luxury Handmade Crystal Bags ✨</p>
+<input type="text"
+placeholder="Search products..."
+class="search-box">
+
+<div class="cart">🛒</div>
+
+</div>
 
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <section class="hero">
 
-  <h2>Elegant Luxury Collection</h2>
+<div class="hero-content">
 
-  <p>Handmade crystal bags crafted with beauty & elegance</p>
+<h1>Baglory</h1>
+
+<p>Luxury Crystal Bags • Bracelets • Necklaces ✨</p>
+
+</div>
 
 </section>
 
-<!-- PRODUCTS -->
+<!-- BAGS SECTION -->
+
+<h2 class="section-title">Luxury Bags</h2>
 
 <section class="products">
 
-  <!-- PRODUCT 1 -->
+<div class="card">
 
-  <div class="card">
+<div class="slider">
+<div class="slides">
 
-    <div class="slider">
+<img src="bag1.jpg">
+<img src="bag2.jpg">
 
-      <div class="slides">
+</div>
+</div>
 
-        <img src="bag1.jpg">
-        <img src="bag2.jpg">
+<div class="card-content">
 
-      </div>
+<h3>Crystal Pearl Bag</h3>
 
-    </div>
+<div class="price">Rs. 4,999</div>
 
-    <div class="card-content">
+<div class="buttons">
 
-      <h3>Crystal Luxury Bag</h3>
+<button class="btn cart-btn">
+Add to Cart
+</button>
 
-      <div class="price">Rs. 4,999</div>
+<button class="btn buy-btn">
+Buy Now
+</button>
 
-      <div class="buttons">
+</div>
 
-        <!-- BUY NOW BUTTON -->
+</div>
+</div>
 
-        <a href="https://ig.me/m/yourusername"
-        class="buy-btn">
-        Buy Now
-        </a>
+</section>
 
-        <!-- INSTAGRAM MESSAGE BUTTON -->
+<!-- BRACELETS -->
 
-        <a href="https://ig.me/m/yourusername"
-        class="message-btn">
-        Instagram Message
-        </a>
+<h2 class="section-title">Bracelets</h2>
 
-      </div>
+<section class="products">
 
-    </div>
+<div class="card">
 
-  </div>
+<div class="slider">
+<div class="slides">
+
+<img src="bracelet1.jpg">
+<img src="bracelet2.jpg">
+
+</div>
+</div>
+
+<div class="card-content">
+
+<h3>Crystal Bracelet</h3>
+
+<div class="price">Rs. 1,499</div>
+
+<div class="buttons">
+
+<button class="btn cart-btn">
+Add to Cart
+</button>
+
+<button class="btn buy-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- GAJRA BRACELETS -->
+
+<h2 class="section-title">Gajra Bracelets</h2>
+
+<section class="products">
+
+<div class="card">
+
+<div class="slider">
+<div class="slides">
+
+<img src="gajra1.jpg">
+<img src="gajra2.jpg">
+
+</div>
+</div>
+
+<div class="card-content">
+
+<h3>Elegant Gajra Bracelet</h3>
+
+<div class="price">Rs. 1,899</div>
+
+<div class="buttons">
+
+<button class="btn cart-btn">
+Add to Cart
+</button>
+
+<button class="btn buy-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
+
+</section>
+
+<!-- NECKLACES -->
+
+<h2 class="section-title">Necklaces</h2>
+
+<section class="products">
+
+<div class="card">
+
+<div class="slider">
+<div class="slides">
+
+<img src="necklace1.jpg">
+<img src="necklace2.jpg">
+
+</div>
+</div>
+
+<div class="card-content">
+
+<h3>Luxury Crystal Necklace</h3>
+
+<div class="price">Rs. 2,499</div>
+
+<div class="buttons">
+
+<button class="btn cart-btn">
+Add to Cart
+</button>
+
+<button class="btn buy-btn">
+Buy Now
+</button>
+
+</div>
+
+</div>
+</div>
 
 </section>
 
@@ -267,7 +412,7 @@ footer{
 
 <footer>
 
-  © 2026 Baglory.pk — Handmade with Love ✨
+© 2026 Baglory — Luxury Handmade Accessories ✨
 
 </footer>
 
