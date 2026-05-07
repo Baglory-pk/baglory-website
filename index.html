@@ -35,10 +35,21 @@ box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
 .logo-text{
+display:flex;
+align-items:center;
+gap:15px;
 font-size:34px;
 font-weight:bold;
 color:#c46b85;
 letter-spacing:2px;
+}
+
+.logo{
+width:60px;
+height:60px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #f3d3dc;
 }
 
 .right-icons{
@@ -63,35 +74,67 @@ cursor:pointer;
 /* HERO */
 
 .hero{
-height:85vh;
+height:95vh;
 background:
-linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)),
-url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1400');
+linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
+url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1400');
 background-size:cover;
 background-position:center;
 display:flex;
 justify-content:center;
 align-items:center;
-text-align:center;
-padding:20px;
+position:relative;
+overflow:hidden;
 }
 
-.hero-content{
-background:rgba(255,255,255,0.75);
-padding:40px;
-border-radius:25px;
-backdrop-filter:blur(5px);
+.hero-box{
+position:relative;
+z-index:2;
+text-align:center;
+background:rgba(255,255,255,0.15);
+padding:45px;
+border-radius:30px;
+backdrop-filter:blur(8px);
+box-shadow:0 8px 30px rgba(0,0,0,0.15);
+}
+
+.main-logo{
+width:130px;
+height:130px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid white;
+margin-bottom:20px;
+box-shadow:0 4px 20px rgba(0,0,0,0.2);
 }
 
 .hero h1{
-font-size:60px;
-color:#b85c74;
+font-size:65px;
+color:white;
 margin-bottom:15px;
+letter-spacing:3px;
 }
 
 .hero p{
 font-size:20px;
-color:#444;
+color:white;
+margin-bottom:25px;
+}
+
+.shop-btn{
+display:inline-block;
+padding:14px 30px;
+background:#d87b95;
+color:white;
+text-decoration:none;
+border-radius:40px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.shop-btn:hover{
+background:#c46b85;
+transform:scale(1.05);
 }
 
 /* CATEGORY TITLE */
@@ -220,7 +263,13 @@ color:#666;
 
 <header>
 
-<div class="logo-text">Baglory</div>
+<div class="logo-text">
+
+<img src="logo.png" class="logo">
+
+Baglory
+
+</div>
 
 <div class="right-icons">
 
@@ -234,15 +283,23 @@ class="search-box">
 
 </header>
 
-<!-- HERO -->
+<!-- HERO SECTION -->
 
 <section class="hero">
 
-<div class="hero-content">
+<div class="hero-box">
+
+<img src="logo.png" class="main-logo">
 
 <h1>Baglory</h1>
 
-<p>Luxury Crystal Bags • Bracelets • Necklaces ✨</p>
+<p>
+Luxury Crystal Bags • Bracelets • Necklaces ✨
+</p>
+
+<a href="#products-start" class="shop-btn">
+Shop Collection
+</a>
 
 </div>
 
@@ -250,19 +307,23 @@ class="search-box">
 
 <!-- BAGS SECTION -->
 
-<h2 class="section-title">Luxury Bags</h2>
+<h2 class="section-title" id="products-start">
+Luxury Bags
+</h2>
 
 <section class="products">
 
 <div class="card">
 
 <div class="slider">
+
 <div class="slides">
 
 <img src="bag1.jpg">
 <img src="bag2.jpg">
 
 </div>
+
 </div>
 
 <div class="card-content">
@@ -284,25 +345,30 @@ Buy Now
 </div>
 
 </div>
+
 </div>
 
 </section>
 
 <!-- BRACELETS -->
 
-<h2 class="section-title">Bracelets</h2>
+<h2 class="section-title">
+Bracelets
+</h2>
 
 <section class="products">
 
 <div class="card">
 
 <div class="slider">
+
 <div class="slides">
 
 <img src="bracelet1.jpg">
 <img src="bracelet2.jpg">
 
 </div>
+
 </div>
 
 <div class="card-content">
@@ -324,25 +390,30 @@ Buy Now
 </div>
 
 </div>
+
 </div>
 
 </section>
 
 <!-- GAJRA BRACELETS -->
 
-<h2 class="section-title">Gajra Bracelets</h2>
+<h2 class="section-title">
+Gajra Bracelets
+</h2>
 
 <section class="products">
 
 <div class="card">
 
 <div class="slider">
+
 <div class="slides">
 
 <img src="gajra1.jpg">
 <img src="gajra2.jpg">
 
 </div>
+
 </div>
 
 <div class="card-content">
@@ -364,25 +435,30 @@ Buy Now
 </div>
 
 </div>
+
 </div>
 
 </section>
 
 <!-- NECKLACES -->
 
-<h2 class="section-title">Necklaces</h2>
+<h2 class="section-title">
+Necklaces
+</h2>
 
 <section class="products">
 
 <div class="card">
 
 <div class="slider">
+
 <div class="slides">
 
 <img src="necklace1.jpg">
 <img src="necklace2.jpg">
 
 </div>
+
 </div>
 
 <div class="card-content">
@@ -404,6 +480,7 @@ Buy Now
 </div>
 
 </div>
+
 </div>
 
 </section>
