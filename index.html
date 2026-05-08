@@ -35,26 +35,16 @@ box-shadow:0 2px 10px rgba(0,0,0,0.08);
 }
 
 .logo-text{
-display:flex;
-align-items:center;
-gap:15px;
-font-size:34px;
+font-size:30px;
 font-weight:bold;
 color:#c46b85;
-letter-spacing:2px;
+animation:fadeText 3s infinite;
 }
 
-.logo{
-width:60px;
-height:60px;
-border-radius:50%;
-object-fit:cover;
-border:3px solid #f3d3dc;
-}
-
-.right-icons{
-display:flex;
-align-items:center;
+@keyframes fadeText{
+0%{opacity:0;}
+50%{opacity:1;}
+100%{opacity:0;}
 }
 
 .cart{
@@ -65,28 +55,23 @@ cursor:pointer;
 /* HERO */
 
 .hero{
-height:95vh;
+height:90vh;
 background:
-linear-gradient(rgba(0,0,0,0.25),rgba(0,0,0,0.25)),
-url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1400');
+linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),
+url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1600');
 background-size:cover;
 background-position:center;
 display:flex;
 justify-content:center;
 align-items:center;
-position:relative;
-overflow:hidden;
+text-align:center;
 }
 
 .hero-box{
-position:relative;
-z-index:2;
-text-align:center;
 background:rgba(255,255,255,0.15);
-padding:45px;
-border-radius:30px;
+padding:40px;
+border-radius:25px;
 backdrop-filter:blur(8px);
-box-shadow:0 8px 30px rgba(0,0,0,0.15);
 }
 
 .main-logo{
@@ -95,130 +80,80 @@ height:130px;
 border-radius:50%;
 object-fit:cover;
 border:5px solid white;
-margin-bottom:20px;
-box-shadow:0 4px 20px rgba(0,0,0,0.2);
+margin-bottom:15px;
 }
 
 .hero h1{
-font-size:65px;
+font-size:60px;
 color:white;
-margin-bottom:15px;
-letter-spacing:3px;
 }
 
 .hero p{
-font-size:20px;
 color:white;
-margin-bottom:25px;
+margin:10px 0 20px;
 }
 
 .shop-btn{
-display:inline-block;
-padding:14px 30px;
-background:#d87b95;
-color:white;
-text-decoration:none;
-border-radius:40px;
-font-weight:bold;
-transition:0.3s;
-}
-
-.shop-btn:hover{
+padding:12px 25px;
 background:#c46b85;
-transform:scale(1.05);
-}
-
-/* CATEGORY TITLE */
-
-.section-title{
-text-align:center;
-font-size:40px;
-margin-top:60px;
-margin-bottom:30px;
-color:#c46b85;
+color:white;
+border-radius:30px;
+text-decoration:none;
 }
 
 /* PRODUCTS */
 
+.section-title{
+text-align:center;
+font-size:38px;
+margin:50px 0 20px;
+color:#c46b85;
+}
+
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:30px;
-padding:0 30px 50px;
-max-width:1300px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+padding:20px;
+max-width:1200px;
 margin:auto;
 }
 
 .card{
 background:white;
-border-radius:25px;
+border-radius:20px;
 overflow:hidden;
-box-shadow:0 8px 25px rgba(0,0,0,0.08);
-transition:0.3s;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
-.card:hover{
-transform:translateY(-10px);
-}
-
-.slider{
+.card img{
 width:100%;
-height:380px;
-overflow:hidden;
-position:relative;
-}
-
-.slides{
-display:flex;
-width:200%;
-animation:slide 8s infinite;
-}
-
-.slides img{
-width:100%;
-height:380px;
+height:300px;
 object-fit:cover;
 }
 
-@keyframes slide{
-0%{transform:translateX(0);}
-45%{transform:translateX(0);}
-50%{transform:translateX(-50%);}
-95%{transform:translateX(-50%);}
-100%{transform:translateX(0);}
-}
-
 .card-content{
-padding:20px;
+padding:15px;
 text-align:center;
 }
 
-.card-content h3{
-font-size:26px;
-margin-bottom:10px;
-}
-
 .price{
-font-size:24px;
-font-weight:bold;
 color:#c46b85;
-margin-bottom:20px;
+font-weight:bold;
+margin:10px 0;
 }
 
-.buttons{
+.btns{
 display:flex;
 justify-content:center;
-gap:15px;
+gap:10px;
 }
 
 .btn{
-padding:12px 22px;
+padding:10px 15px;
 border:none;
-border-radius:12px;
-font-size:16px;
-font-weight:bold;
+border-radius:10px;
 cursor:pointer;
-transition:0.3s;
 }
 
 .cart-btn{
@@ -230,19 +165,11 @@ background:#c46b85;
 color:white;
 }
 
-.btn:hover{
-opacity:0.85;
-}
-
-/* FOOTER */
-
 footer{
-background:white;
-padding:30px;
 text-align:center;
-margin-top:50px;
-border-top:1px solid #eee;
-color:#666;
+padding:30px;
+margin-top:40px;
+color:#777;
 }
 
 </style>
@@ -250,30 +177,12 @@ color:#666;
 
 <body>
 
-<!-- HEADER -->
-
 <header>
-
-<div class="logo-text">
-
-<img src="logo.jpeg" class="logo">
-
-
-</div>
-
-<div class="right-icons">
-
-<input type="text"
-placeholder="Search products..."
-class="search-box">
-
+<div class="logo-text">✨ Baglory</div>
 <div class="cart">🛒</div>
-
-</div>
-
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -282,205 +191,91 @@ class="search-box">
 <img src="logo.jpeg" class="main-logo">
 
 <h1>Baglory</h1>
+<p>Luxury Crystal Bags • Bracelets • Necklaces</p>
 
-<p>
-Luxury Crystal Bags • Bracelets • Necklaces ✨
-</p>
-
-<a href="#products-start" class="shop-btn">
-Shop Collection
-</a>
+<a href="#products" class="shop-btn">Shop Now</a>
 
 </div>
 
 </section>
 
-<!-- BAGS SECTION -->
+<!-- PRODUCTS -->
 
-<h2 class="section-title" id="products-start">
-Luxury Bags
-</h2>
+<h2 class="section-title" id="products">Luxury Bags</h2>
 
 <section class="products">
 
 <div class="card">
-
-<div class="slider">
-
-<div class="slides">
-
 <img src="bag1.jpg">
-<img src="bag2.jpg">
-
-</div>
-
-</div>
-
 <div class="card-content">
-
 <h3>Crystal Pearl Bag</h3>
-
 <div class="price">Rs. 4,999</div>
 
-<div class="buttons">
+<div class="btns">
+<button class="btn cart-btn">Add to Cart</button>
 
-<button class="btn cart-btn">
-Add to Cart
-</button>
-
-<button class="btn buy-btn">
-Buy Now
-</button>
+<a href="checkout.html">
+<button class="btn buy-btn">Buy Now</button>
+</a>
 
 </div>
-
 </div>
-
 </div>
 
 </section>
 
 <!-- BRACELETS -->
 
-<h2 class="section-title">
-Bracelets
-</h2>
+<h2 class="section-title">Bracelets</h2>
 
 <section class="products">
 
 <div class="card">
-
-<div class="slider">
-
-<div class="slides">
-
 <img src="bracelet1.jpg">
-<img src="bracelet2.jpg">
-
-</div>
-
-</div>
-
 <div class="card-content">
-
 <h3>Crystal Bracelet</h3>
-
 <div class="price">Rs. 1,499</div>
 
-<div class="buttons">
+<div class="btns">
+<button class="btn cart-btn">Add to Cart</button>
 
-<button class="btn cart-btn">
-Add to Cart
-</button>
-
-<button class="btn buy-btn">
-Buy Now
-</button>
+<a href="checkout.html">
+<button class="btn buy-btn">Buy Now</button>
+</a>
 
 </div>
-
 </div>
-
-</div>
-
-</section>
-
-<!-- GAJRA BRACELETS -->
-
-<h2 class="section-title">
-Gajra Bracelets
-</h2>
-
-<section class="products">
-
-<div class="card">
-
-<div class="slider">
-
-<div class="slides">
-
-<img src="gajra1.jpg">
-<img src="gajra2.jpg">
-
-</div>
-
-</div>
-
-<div class="card-content">
-
-<h3>Elegant Gajra Bracelet</h3>
-
-<div class="price">Rs. 1,899</div>
-
-<div class="buttons">
-
-<button class="btn cart-btn">
-Add to Cart
-</button>
-
-<button class="btn buy-btn">
-Buy Now
-</button>
-
-</div>
-
-</div>
-
 </div>
 
 </section>
 
 <!-- NECKLACES -->
 
-<h2 class="section-title">
-Necklaces
-</h2>
+<h2 class="section-title">Necklaces</h2>
 
 <section class="products">
 
 <div class="card">
-
-<div class="slider">
-
-<div class="slides">
-
 <img src="necklace1.jpg">
-<img src="necklace2.jpg">
-
-</div>
-
-</div>
-
 <div class="card-content">
-
-<h3>Luxury Crystal Necklace</h3>
-
+<h3>Luxury Necklace</h3>
 <div class="price">Rs. 2,499</div>
 
-<div class="buttons">
+<div class="btns">
+<button class="btn cart-btn">Add to Cart</button>
 
-<button class="btn cart-btn">
-Add to Cart
-</button>
-
-<button class="btn buy-btn">
-Buy Now
-</button>
+<a href="checkout.html">
+<button class="btn buy-btn">Buy Now</button>
+</a>
 
 </div>
-
 </div>
-
 </div>
 
 </section>
 
-<!-- FOOTER -->
-
 <footer>
-
-© 2026 Baglory — Luxury Handmade Accessories ✨
-
+© 2026 Baglory — Handmade Luxury ✨
 </footer>
 
 </body>
