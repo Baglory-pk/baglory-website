@@ -20,7 +20,30 @@ background:#fff8fb;
 color:#222;
 }
 
-/* ✨ FLOATING INTRO BANNER */
+/* HEADER */
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo-text{
+font-size:30px;
+font-weight:bold;
+color:#c46b85;
+}
+
+.cart{
+font-size:28px;
+}
+
+/* INTRO */
 .intro-banner{
 position:relative;
 width:100%;
@@ -38,67 +61,9 @@ font-weight:bold;
 background:linear-gradient(45deg,#c46b85,#6b7cc4,#c4a86b,#8e44ad);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:floatText 3s ease-in-out infinite;
-z-index:2;
-}
-
-.pearl{
-position:absolute;
-width:10px;
-height:10px;
-background:white;
-border-radius:50%;
-box-shadow:0 0 10px rgba(255,255,255,0.9);
-animation:floatPearls 6s linear infinite;
-opacity:0.8;
-}
-
-@keyframes floatPearls{
-0%{transform:translateY(100px) scale(0.5); opacity:0;}
-50%{opacity:1;}
-100%{transform:translateY(-120px) scale(1.2); opacity:0;}
-}
-
-@keyframes floatText{
-0%{transform:translateY(0);}
-50%{transform:translateY(-5px);}
-100%{transform:translateY(0);}
-}
-
-/* HEADER */
-
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:white;
-padding:15px 30px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 2px 10px rgba(0,0,0,0.08);
-}
-
-.logo-text{
-font-size:30px;
-font-weight:bold;
-color:#c46b85;
-animation:fadeText 3s infinite;
-}
-
-@keyframes fadeText{
-0%{opacity:0;}
-50%{opacity:1;}
-100%{opacity:0;}
-}
-
-.cart{
-font-size:28px;
-cursor:pointer;
 }
 
 /* HERO */
-
 .hero{
 height:90vh;
 background:
@@ -125,7 +90,6 @@ height:130px;
 border-radius:50%;
 object-fit:cover;
 border:5px solid white;
-margin-bottom:15px;
 }
 
 .hero h1{
@@ -135,7 +99,7 @@ color:white;
 
 .hero p{
 color:white;
-margin:10px 0 20px;
+margin:10px 0;
 }
 
 .shop-btn{
@@ -147,7 +111,6 @@ text-decoration:none;
 }
 
 /* PRODUCTS */
-
 .section-title{
 text-align:center;
 font-size:38px;
@@ -171,27 +134,59 @@ overflow:hidden;
 box-shadow:0 5px 20px rgba(0,0,0,0.08);
 }
 
+/* IMAGE FIX */
 .card img{
 width:100%;
-height:300px;
-object-fit:cover;
+height:320px;
+object-fit:contain;
+background:white;
+cursor:pointer;
 }
 
-.card-content{
-padding:15px;
-text-align:center;
+/* SLIDER */
+.slider{
+position:relative;
+width:100%;
+height:320px;
+overflow:hidden;
+background:white;
 }
 
-.price{
-color:#c46b85;
-font-weight:bold;
-margin:10px 0;
+.slide{
+position:absolute;
+width:100%;
+height:320px;
+object-fit:contain;
+opacity:0;
+transition:0.5s;
 }
 
+.slide.active{
+opacity:1;
+}
+
+.prev,.next{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:rgba(0,0,0,0.5);
+color:white;
+border:none;
+padding:10px;
+border-radius:50%;
+cursor:pointer;
+z-index:10;
+}
+
+.prev{left:10px;}
+.next{right:10px}
+
+/* BUTTONS */
 .btns{
 display:flex;
 justify-content:center;
 gap:10px;
+padding:10px;
 }
 
 .btn{
@@ -210,55 +205,48 @@ background:#c46b85;
 color:white;
 }
 
-/* SLIDER */
-
-.slider{
-position:relative;
-width:100%;
-height:300px;
-overflow:hidden;
+/* PRICE */
+.price{
+color:#c46b85;
+font-weight:bold;
+margin:10px 0;
 }
 
-.slide{
-position:absolute;
-width:100%;
-height:300px;
-object-fit:cover;
-opacity:0;
-transition:0.5s;
-}
-
-.slide.active{
-opacity:1;
-}
-
-.prev,
-.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.5);
-color:white;
-border:none;
+/* SELECT */
+.select-box{
+width:90%;
+margin:10px auto;
+display:block;
 padding:10px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+/* POPUP */
+#imgPopup{
+display:none;
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:black;
+z-index:9999;
+justify-content:center;
+align-items:center;
+}
+
+#imgPopup img{
+max-width:90%;
+max-height:90%;
+}
+
+#imgPopup span{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
 cursor:pointer;
-border-radius:50%;
-z-index:10;
-}
-
-.prev{
-left:10px;
-}
-
-.next{
-right:10px;
-}
-
-footer{
-text-align:center;
-padding:30px;
-margin-top:40px;
-color:#777;
 }
 
 </style>
@@ -266,69 +254,42 @@ color:#777;
 
 <body>
 
-<!-- ✨ ANIMATED INTRO -->
-<div class="intro-banner">
-  <div class="intro-text">✨ Baglory.pk ✨</div>
-
-  <div class="pearl" style="left:10%; animation-delay:0s;"></div>
-  <div class="pearl" style="left:25%; animation-delay:1s;"></div>
-  <div class="pearl" style="left:40%; animation-delay:2s;"></div>
-  <div class="pearl" style="left:60%; animation-delay:3s;"></div>
-  <div class="pearl" style="left:80%; animation-delay:4s;"></div>
-</div>
-
+<!-- HEADER -->
 <header>
 <div class="logo-text">✨ Baglory</div>
-<div class="cart">🛒</div>
+<div class="cart">🛒 <span id="cartCount">0</span></div>
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
-
 <div class="hero-box">
-
 <img src="logo.jpeg" class="main-logo">
-
 <h1>Baglory</h1>
 <p>Luxury Crystal Bags • Bracelets • Necklaces</p>
-
 <a href="#products" class="shop-btn">Shop Now</a>
-
 </div>
-
 </section>
 
 <!-- BAGS -->
-
-<h2 class="section-title" id="products">Luxury Bags</h2>
+<h2 class="section-title">Luxury Bags</h2>
 
 <section class="products">
 
 <div class="card">
-<img src="bag3.jpeg">
-
-<div class="card-content">
-<h3>Crystal Pearl Bag</h3>
+<img src="bag1.jpg" onclick="openImg(this.src)">
+<img src="bag3.jpeg" onclick="openImg(this.src)">
 
 <div class="price">Rs. 999</div>
 
 <div class="btns">
-
-<button class="btn cart-btn">Add to Cart</button>
-
-<a href="checkout.html">
-<button class="btn buy-btn">Buy Now</button>
-</a>
-
-</div>
+<button class="btn cart-btn" onclick="addCart('Bag')">Add to Cart</button>
+<a href="checkout.html"><button class="btn buy-btn">Buy Now</button></a>
 </div>
 </div>
 
 </section>
 
 <!-- BRACELETS -->
-
 <h2 class="section-title">Bracelets</h2>
 
 <section class="products">
@@ -337,118 +298,122 @@ color:#777;
 
 <div class="slider">
 
-<img src="bracelet1.jpeg" class="slide active">
-<img src="bracelet2.jpeg" class="slide">
-<img src="bracelet3.jpeg" class="slide">
-<img src="bracelet4.jpeg" class="slide">
-<img src="bracelet5.jpeg" class="slide">
-<img src="bracelet6.jpeg" class="slide">
-<img src="bracelet7.jpeg" class="slide">
-<img src="bracelet8.jpeg" class="slide">
-<img src="bracelet9.jpeg" class="slide">
-<img src="bracelet10.jpeg" class="slide">
-<img src="bracelet11.jpeg" class="slide">
+<img src="bracelet1.jpeg" class="slide active" onclick="openImg(this.src)">
+<img src="bracelet2.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet3.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet4.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet5.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet6.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet7.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet8.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet9.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet10.jpeg" class="slide" onclick="openImg(this.src)">
+<img src="bracelet11.jpeg" class="slide" onclick="openImg(this.src)">
 
 <button class="prev" onclick="changeSlide(-1,this)">❮</button>
 <button class="next" onclick="changeSlide(1,this)">❯</button>
 
 </div>
 
-<div class="card-content">
-
-<h3>Crystal Bracelet Collection</h3>
+<select id="braceletSelect" class="select-box">
+<option>Bracelet 1</option>
+<option>Bracelet 2</option>
+<option>Bracelet 3</option>
+<option>Bracelet 4</option>
+<option>Bracelet 5</option>
+<option>Bracelet 6</option>
+<option>Bracelet 7</option>
+<option>Bracelet 8</option>
+<option>Bracelet 9</option>
+<option>Bracelet 10</option>
+<option>Bracelet 11</option>
+</select>
 
 <div class="price">Rs. 850</div>
 
 <div class="btns">
-
-<button class="btn cart-btn">Add to Cart</button>
-
-<a href="checkout.html">
-<button class="btn buy-btn">Buy Now</button>
-</a>
-
+<button class="btn cart-btn" onclick="addCart('Bracelet')">Add to Cart</button>
+<a href="checkout.html"><button class="btn buy-btn">Buy Now</button></a>
 </div>
-</div>
+
 </div>
 
 </section>
 
-<!-- NECKLACES -->
-
+<!-- NECKLACE -->
 <h2 class="section-title">Necklaces</h2>
 
 <section class="products">
 
 <div class="card">
-<img src="necklace1.jpg">
-
-<div class="card-content">
-
-<h3>Luxury Necklace</h3>
+<img src="necklace1.jpg" onclick="openImg(this.src)">
 
 <div class="price">Rs. 2,499</div>
 
 <div class="btns">
-
-<button class="btn cart-btn">Add to Cart</button>
-
-<a href="checkout.html">
-<button class="btn buy-btn">Buy Now</button>
-</a>
-
-</div>
+<button class="btn cart-btn" onclick="addCart('Necklace')">Add to Cart</button>
+<a href="checkout.html"><button class="btn buy-btn">Buy Now</button></a>
 </div>
 </div>
 
 </section>
 
-<!-- CHECKOUT -->
-
-<div style="text-align:center; margin:50px 0;">
-
-<a href="checkout.html">
-
-<button class="btn buy-btn" style="padding:15px 35px; font-size:18px;">
-Proceed to Checkout
-</button>
-
-</a>
-
+<!-- POPUP -->
+<div id="imgPopup">
+<span onclick="closeImg()">×</span>
+<img id="popupImg">
 </div>
-
-<footer>
-© 2026 Baglory — Handmade Luxury ✨
-</footer>
 
 <script>
 
-function changeSlide(direction,btn){
+let cart=[];
 
-const slider = btn.parentElement;
-const slides = slider.querySelectorAll('.slide');
+/* SLIDER */
+function changeSlide(dir,btn){
 
-let active = 0;
+let slider=btn.parentElement;
+let slides=slider.querySelectorAll(".slide");
 
-slides.forEach((slide,index)=>{
-if(slide.classList.contains('active')){
-active = index;
-slide.classList.remove('active');
+let active=0;
+
+slides.forEach((s,i)=>{
+if(s.classList.contains("active")){
+active=i;
+s.classList.remove("active");
 }
 });
 
-active += direction;
+active+=dir;
+if(active>=slides.length) active=0;
+if(active<0) active=slides.length-1;
 
-if(active >= slides.length){
-active = 0;
+slides[active].classList.add("active");
 }
 
-if(active < 0){
-active = slides.length - 1;
+/* CART */
+function addCart(product){
+
+let item=product;
+
+if(product==="Bracelet"){
+let select=document.getElementById("braceletSelect").value;
+item="Bracelet - "+select;
 }
 
-slides[active].classList.add('active');
+cart.push(item);
+document.getElementById("cartCount").innerText=cart.length;
 
+alert(item+" added to cart 🛒");
+}
+
+/* POPUP */
+function openImg(src){
+document.getElementById("imgPopup").style.display="flex";
+document.getElementById("popupImg").src=src;
+}
+
+function closeImg(){
+document.getElementById("imgPopup").style.display="none";
 }
 
 </script>
